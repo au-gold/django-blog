@@ -4,6 +4,8 @@ from django.template import loader
 from blogging.models import Post
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.contrib.syndication.views import Feed
+from django.urls import reverse
 
 
 # def stub_view(request, *args, **kwargs):
@@ -46,3 +48,23 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = "blogging/detail.html"
     queryset = model.objects.exclude(published_date__exact=None)
+
+
+
+class LatestEntriesFeed(Feed):
+    title = "Cool Posts"
+    link = "https://example.com"
+    description = "cool posts from au-gold"
+
+    def items(self):
+        return Post.objects.order_by('-published_date')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.text
+
+    # item_link is only needed if NewsItem has no get_absolute_url method.
+    def item_link(self, item):
+        return reverse('blog_detail', args=[item.pk])
