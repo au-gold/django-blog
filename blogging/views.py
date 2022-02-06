@@ -26,8 +26,10 @@ from django.views.generic.detail import DetailView
 
 class BlogListView(ListView):
     model = Post
-    template_name = 'blogging/list.html'
-    queryset = model.objects.exclude(published_date__exact=None).order_by('-published_date')
+    template_name = "blogging/list.html"
+    queryset = model.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
 
 
 # def detail_view(request, post_id):
@@ -42,6 +44,5 @@ class BlogListView(ListView):
 
 class BlogDetailView(DetailView):
     model = Post
-    template_name = 'blogging/detail.html'
+    template_name = "blogging/detail.html"
     queryset = model.objects.exclude(published_date__exact=None)
-

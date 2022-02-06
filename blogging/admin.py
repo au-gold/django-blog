@@ -1,5 +1,6 @@
 from django.contrib import admin
 from blogging.models import Post, Category
+
 # Register your models here.
 
 
@@ -14,13 +15,11 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    #inlines = [
+    # inlines = [
     #    CategoryInline,
-    #]
-    exclude = ('posts',)
+    # ]
+    exclude = ("posts",)
 
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
-
-
