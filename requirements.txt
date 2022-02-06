@@ -12,6 +12,7 @@ colorama==0.4.4
 cryptography==36.0.1
 decorator==5.1.0
 distlib==0.3.3
+dj-database-url==0.5.0
 Django==2.1.5
 filelock==3.4.0
 Flask==2.0.2
@@ -51,4 +52,5 @@ urllib3==1.26.8
 virtualenv==20.10.0
 wcwidth==0.2.5
 Werkzeug==2.0.2
+whitenoise==5.3.0
 wsproto==1.0.0
