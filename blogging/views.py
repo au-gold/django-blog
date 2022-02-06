@@ -50,14 +50,13 @@ class BlogDetailView(DetailView):
     queryset = model.objects.exclude(published_date__exact=None)
 
 
-
 class LatestEntriesFeed(Feed):
     title = "Cool Posts"
     link = "https://example.com"
     description = "cool posts from au-gold"
 
     def items(self):
-        return Post.objects.order_by('-published_date')[:5]
+        return Post.objects.order_by("-published_date")[:5]
 
     def item_title(self, item):
         return item.title
@@ -67,4 +66,4 @@ class LatestEntriesFeed(Feed):
 
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
-        return reverse('blog_detail', args=[item.pk])
+        return reverse("blog_detail", args=[item.pk])
