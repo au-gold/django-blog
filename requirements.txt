@@ -33,7 +33,7 @@ peewee==3.14.8
 pickleshare==0.7.5
 platformdirs==2.4.0
 prompt-toolkit==3.0.22
-psycopg2-binary==2.9.2
+psycopg2-binary==2.8.6
 pycparser==2.21
 Pygments==2.10.0
 pyOpenSSL==21.0.0
